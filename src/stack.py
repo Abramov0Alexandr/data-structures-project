@@ -37,4 +37,4 @@ class Stack:
         if not node:
             return None
         self.top = node.next_node
-        return node
+        return node.data
