@@ -8,8 +8,6 @@ class Node:
 class LinkedList:
     """Класс для односвязного списка"""
 
-    test_list = []
-
     def __init__(self, head=None, end=None):
 
         self.head = head
