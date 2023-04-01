@@ -8,8 +8,6 @@ class Node:
 class LinkedList:
     """Класс для односвязного списка"""
 
-    data_list: list = []
-
     def __init__(self, head=None, end=None):
 
         self.head = head
@@ -41,21 +39,22 @@ class LinkedList:
             self.end = end_node
 
     def to_list(self):
-        """Метод добавляет все значения узлов в список data_list"""
-        node = self.head
+        """Возвращает список с данными, содержащимися в односвязном списке LinkedList"""
+        current_node = self.head
+        result_list = []
+        while current_node:
+            result_list.append(current_node.data)
+            current_node = current_node.next_node
+        return result_list
 
-        while node.next_node is not None:
-            self.data_list.append(node.data)
-            node = node.next_node
-
-        self.data_list.append(node.data)
-        return self.data_list
-
-    def get_data_by_id(self, id_value) -> dict:
-        """Метод позволяет получить элемент по его id из списка data_list"""
-        for i in self.data_list:
-            if i['id'] == id_value:
-                return i
+    def get_data_by_id(self, id_value):
+        """Возвращает первый найденный в LinkedList словарь с ключом 'id',
+           значение которого равно переданному в метод значению"""
+        current_node = self.head
+        while current_node:
+            if current_node.data.get('id') == id_value:
+                return current_node.data
+            current_node = current_node.next_node
 
     def __str__(self) -> str:
         """Вывод данных односвязного списка в строковом представлении"""
