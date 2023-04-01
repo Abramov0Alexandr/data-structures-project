@@ -53,22 +53,20 @@ class TestLinkedList(unittest.TestCase):
         self.assertEqual(str(test_linked_list), "{'id': 1} -> {'id': 2} -> None")
 
     def test_checking_data(self):
-        test_ll = LinkedList()
-        self.assertIsNone(test_ll.insert_beginning('test'))
+        test_linked_list = LinkedList()
+        self.assertIsNone(test_linked_list.insert_beginning('test'))
 
     def test_to_list_method(self):
-        test_ll = LinkedList()
-        test_ll.insert_beginning({'id': 'test1'})
-        test_ll.insert_at_end({'id': 'test2'})
-        data_in_list = test_ll.to_list()
-        self.assertEqual(data_in_list, [{'id': 'test1'}, {'id': 'test2'}])
+        test_linked_list = LinkedList()
+        test_linked_list.insert_beginning({'id': 'test1'})
+        test_linked_list.insert_at_end({'id': 'test2'})
+        data_list = test_linked_list.to_list()
+        self.assertEqual(data_list, [{'id': 'test1'}, {'id': 'test2'}])
 
     def test_get_data_by_id(self):
-        new_test_ll = LinkedList()
-        new_test_ll.insert_beginning({'id': 'WTF'})
-        new_test_ll.to_list()
-        user_data = new_test_ll.get_data_by_id('WTF')
-        self.assertEqual(user_data, {'id': 'WTF'})
-
-
-
+        test_linked_list = LinkedList()
+        test_linked_list.insert_beginning({'id': 'home'})
+        test_linked_list.insert_at_end({'id': 'jim'})
+        test_linked_list.to_list()
+        search_data = test_linked_list.get_data_by_id('jim')
+        self.assertEqual(search_data, {'id': 'jim'})
